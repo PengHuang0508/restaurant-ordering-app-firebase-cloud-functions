@@ -1,0 +1,10 @@
+// You can find this config from Firebase website -> [your app] -> Project settings -> General
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
+  measurementId: ''
+};
