@@ -58,74 +58,74 @@ const {
 /////
 // Menu routes - Guest
 /////
-app.get('/menu', getActiveMenu); // TESTED
+app.get('/menu', getActiveMenu);
 
 /////
 // Menu routes - Admin
 /////
-app.get('/menu/all', isAuthenticated, isAuthorized(2), getAllMenu); // TESTED
-app.get('/menu/item/:itemId', isAuthenticated, isAuthorized(3), getItem); // TESTED
+app.get('/menu/all', isAuthenticated, isAuthorized(2), getAllMenu);
+app.get('/menu/item/:itemId', isAuthenticated, isAuthorized(3), getItem);
 app.get('/menu/items', isAuthenticated, isAuthorized(2), getAllItems);
-app.post('/menu/item/create', isAuthenticated, isAuthorized(2), createMenuItem); // TESTED
+app.post('/menu/item/create', isAuthenticated, isAuthorized(2), createMenuItem);
 app.post(
-  '/menu/update/:itemId',
+  '/menu/item/:itemId/update',
   isAuthenticated,
   isAuthorized(2),
   updateItemDetails
-); // TESTED
+);
 app.post(
-  '/menu/update/image/:itemId',
+  '/menu/item/:itemId/update-image/',
   isAuthenticated,
   isAuthorized(2),
   uploadImage
-); // TESTED
+);
 app.post(
   '/menu/category/create',
   isAuthenticated,
   isAuthorized(2),
   createCategory
-); // TESTED
+);
 app.post(
   '/menu/category/:catId',
   isAuthenticated,
   isAuthorized(2),
   updateCategory
-); // TESTED
+);
 app.post(
   '/menu/category/addItem/:catId',
   isAuthenticated,
   isAuthorized(2),
   addItemToCategory
-); // TESTED
-app.delete('/menu/:itemId', isAuthenticated, isAuthorized(1), deleteItem); // TESTED
+);
+app.delete('/menu/:itemId', isAuthenticated, isAuthorized(1), deleteItem);
 app.delete(
   '/menu/category/deleteItem/:catId',
   isAuthenticated,
   isAuthorized(1),
   deleteItemFromCategory
-); // TESTED
+);
 app.delete(
   '/menu/category/:catId',
   isAuthenticated,
   isAuthorized(1),
   deleteCategory
-); // TESTED
+);
 
 /////
 // Order routes - Guest
 /////
-app.get('/order/:orderId', isAuthenticated, getOrder); // TESTED
+app.get('/order/:orderId', isAuthenticated, getOrder);
 // TODO: if server ordered take out over the phone, we can email confirmation with link for tracking the progress
-app.post('/order', isAuthenticated, sendOrder); // TESTED
+app.post('/order', isAuthenticated, sendOrder);
 // DINE-IN
-app.get('/order/dine-in/:orderId', getDineInOrder); // TESTED
-app.post('/order/dine-in', sendDineInOrder); // TESTED
+app.get('/order/dine-in/:orderId', getDineInOrder);
+app.post('/order/dine-in', sendDineInOrder);
 app.post('/order/dine-in/update/:orderId', addToOrder);
 
 /////
 // Order routes - Admin
 /////
-app.get('/orders', isAuthenticated, isAuthorized(3), getOpenOrders); // TESTED?
+app.get('/orders', isAuthenticated, isAuthorized(3), getOpenOrders);
 app.get(
   '/orders/search/:startingTime/to/:endingTime',
   isAuthenticated,
